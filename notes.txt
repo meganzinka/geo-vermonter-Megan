@@ -1,0 +1,40 @@
+1. Do basic format/outline : Title, status bar, centering 
+
+2. Components List: Map, Nav, Compass (North, East, South, West), Info (Long/Lat/County/Town), Play game box(Start, Guess the Spot, Quit), Score
+
+3.) Press start -> disable start, guess button enabled, quit button enabled , display status bar at 100 points
+
+4.) Press start -> choose random location, zoom level 18 
+
+5.) Press start -> INFO PANNEL: lat: ? long: ? county: ? town: ? (Random Spot- leaflet-pip?)
+
+6.) Button: "I Give Up" - gives lat/long in info panel -> uses 'geocoding' to look up town/county and displays it in info panel
+
+7.) Guess the county -> pop-up modal dialog box asking "what county are we in?" -> list of vermont counties: 
+Counties: Addison, Bennington, Caledonia, Chittenden, Essex, Franklin, Grand Isle, Lamoille, Orange, Orleans, Washington, Windham, Windsor 
+
+8.) Guess the county -> makes "Guess" and "cancel" buttons show up 
+
+9.) Click guess -> game fills in county name in INFO PANNEL & informs correct 
+
+OR 
+
+10.) Click guess -> incorrect -> score - 10, & informs "wrong" 
+
+11.) Dialog box disappears 
+
+OR 
+
+12.) User Clicks cancel & dialog disappears
+
+13.) click N, E, S, W -> map scrolls in that direction ~0.002 degrees, score decreases by 1 point 
+
+14.) Return -> move back to initial location 
+
+15.) click N, E, S, W -> leaves a dotted line between previous map location and current map location, keeps showing line for rest of game 
+
+16.) When win -> game asks user for their name, saves name & score to a list of games 
+
+17.) select "high scores" from nav bar -> show list of games in score order 
+
+
