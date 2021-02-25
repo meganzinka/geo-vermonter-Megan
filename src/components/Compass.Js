@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Compass() {
+const Directions = () => {
     return (
         <div>
             
         </div>
     )
 }
+
+export default Directions
