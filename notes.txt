@@ -4,7 +4,7 @@
 
 3.) Press start -> disable start, guess button enabled, quit button enabled , display status bar at 100 points
 
-4.) Press start -> choose random location, zoom level 18 
+4.) Press start -> choose random location, zoom level 18, new lat and long 
 
 5.) Press start -> INFO PANNEL: lat: ? long: ? county: ? town: ? (Random Spot- leaflet-pip?)
 
