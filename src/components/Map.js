@@ -29,7 +29,7 @@ function Map(props) {
       style={{ height: "600px", width: "600px" }}
     >
       
-      <MyComponent center = {props.center} zoom = {props.zoom}/>
+      {/* <MyComponent center = {props.center} zoom = {props.zoom}/> */}
 
       <TileLayer
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"

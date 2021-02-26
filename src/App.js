@@ -6,16 +6,24 @@ import Map from "./components/Map";
 import GameBox from "./components/Gamebox";
 // import Directions from "./components/Compass";
 import Score from "./components/Score";
-
-import borderData from "./data/border";
-import leafletPip from "leaflet-pip";
+import borderData from './data/border';
+import leafletPip from 'leaflet-pip';
+//import { map } from "leaflet";
 import L from "leaflet";
+//store the location where the pin was dropped 
+let droppedPin;
 
-// let startButton = getElementById("start-button")
+
+
+
 function App() {
   // const [view, setView] = useState([43.88, -72.7317]);
   const [center, setCenter] = useState([43.88, -72.7317]);
   const [zoom, setZoom] = useState(8);
+  const [direction, setDirection] = useState(""); 
+
+
+
 
   function gameStart(evt) {
     setZoom(18);
@@ -35,17 +43,23 @@ function App() {
         true
       ).length;
     }
-    setCenter([newY, newX]);
+    setCenter([newY, newX])
+    //map.setView([newY, newX], 18)
+    droppedPin = ([newY, newX]);
      
     // evt.target.style.display = false;
   }
+
+  // function changeDirection(evt) {
+  //   center[0] = center + 1; 
+  // }
 
   return (
     <div>
       <Map center={center} zoom={zoom} />
       <Panel />
       {/* <GameBox /> */}
-      <Nav />
+      {/* <Nav onClick={setDirection = event.target}/> */}
       {/* <Directions /> */}
       <Score />
       <button id="start-button" onClick={gameStart}>
