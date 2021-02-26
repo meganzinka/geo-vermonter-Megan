@@ -13,10 +13,12 @@ import L from "leaflet";
 
 // let startButton = getElementById("start-button")
 function App() {
+  // const [view, setView] = useState([43.88, -72.7317]);
   const [center, setCenter] = useState([43.88, -72.7317]);
   const [zoom, setZoom] = useState(8);
 
   function gameStart(evt) {
+    setZoom(18);
     let layers = 0;
     let xMin = -73.42613118833583;
     let xMax = -71.51022535353107;
@@ -34,8 +36,8 @@ function App() {
       ).length;
     }
     setCenter([newY, newX]);
-     setZoom(18);
-    evt.target.style.display = false;
+     
+    // evt.target.style.display = false;
   }
 
   return (
