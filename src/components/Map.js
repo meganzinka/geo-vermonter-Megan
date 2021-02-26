@@ -29,11 +29,8 @@ function Map(props) {
       style={{ height: "600px", width: "600px" }}
     >
       
-<<<<<<< HEAD
-=======
-      <MyComponent center = {props.center} zoom = {props.zoom}/>
+      {/* <MyComponent center = {props.center} zoom = {props.zoom}/> */}
 
->>>>>>> b7cf811f1d92ec83a1fd1002814f0f371bb99a65
       <TileLayer
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
         attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
