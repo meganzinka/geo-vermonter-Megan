@@ -1,74 +1,88 @@
 import "./App.css";
-import { useState, useEffect } from "react";
-import Panel from "./components/Panel";
-import Nav from "./components/Nav";
+import { useState } from "react";
 import Map from "./components/Map";
-import GameBox from "./components/Gamebox";
+import GeoData from "./components/GeoData";
 import Compass from "./components/Compass";
-// import Directions from "./components/Compass";
 import Score from "./components/Score";
 import borderData from "./data/border";
 import leafletPip from "leaflet-pip";
-//import { map } from "leaflet";
 import L from "leaflet";
-import Guess from "./components/Guess";
-import DisplayButtonsProps from "./components/DisplayButtons";
-import GeoData from "./components/GeoData";
+import DisplayButtons from "./components/DisplayButtons";
+import Panel from "./components/Panel";
 
-//store the location where the pin was dropped
-
-let tempVariable;
+//--------some things we had imported but aren't working right now: ---------
+// import Guess from "./components/Guess";
+// import GameBox from "./components/Gamebox";
+// import Nav from "./components/Nav";
+// import Directions from "./components/Compass";
+//import { map } from "leaflet";
 // import {useMap} from 'leaflet'
 
 function App() {
   // const [view, setView] = useState([43.88, -72.7317]);
   const [center, setCenter] = useState([43.88, -72.7317]);
   const [zoom, setZoom] = useState(8);
-  const [direction, setDirection] = useState("");
   const [start, setStart] = useState(false);
-  const [droppedPin, setDroppedPin] = useState("")
+  const [droppedPin, setDroppedPin] = useState("");
+  const [giveUp, setGiveUp] = useState(false);
 
+  //declare newX and newY to find new center
   let newX;
   let newY;
 
+  //choose random lat and long and check and see if it's without hte bounds
   function gameStart(evt) {
+    //layers = length of array where valid lat,long point is added
     let layers = 0;
     let xMin = -73.42613118833583;
     let xMax = -71.51022535353107;
     let yMin = 42.730315121762715;
     let yMax = 45.00541896831666;
 
+    //use while loop to keep looping through until there is a point in VT
     while (layers !== 1) {
+      //choose random lat and long within bounds
       newX = xMin + Math.random() * (xMax - xMin);
       newY = yMin + Math.random() * (yMax - yMin);
+      //if new point is within VT, it will be added to array, array will have length of 1, so will exit loop
       layers = leafletPip.pointInLayer(
         [newX, newY],
         L.geoJSON(borderData),
         true
       ).length;
     }
+    //change center to the valid lat and long values
     setCenter([newY, newX]);
-    setZoom(18);
+    //make start button go away
     evt.target.style.display = "none";
+    //start game = true
     setStart(true);
+    //zoom in 
+    setZoom(18); 
+    //store the new location in dropped pin
     setDroppedPin([newY, newX]);
   }
-  
 
-  let changeDirection = (evt) => {
-    setDirection(evt.target.id);
+  //identify if user pressed North, East, South, West
+
+  //identify is person gives up
+  let userGiveUp = (evt) => {
+    console.log(evt.target.id);
+    if (evt.target.id === "give-up") {
+      setGiveUp(true);
+    }
   };
 
   return (
     <div>
-      <Compass
-        droppedPin = {droppedPin}
-        changeDirection={changeDirection}
-        direction={direction}
+
+      <Map center={center} zoom={zoom} droppedPin = {droppedPin}/>
+      <DisplayButtons
+        droppedPin={droppedPin}
+        start={start}
+        onClick={userGiveUp}
       />
-      <GeoData droppedPin = {droppedPin} start = {start}/>
-      <DisplayButtonsProps start={start}/>
-      <Map center={center} zoom={zoom} />
+      <GeoData start={start} droppedPin={droppedPin} giveUp={userGiveUp} />
 
       {/* <GameBox /> */}
       {/* <Nav/> */}
@@ -78,7 +92,7 @@ function App() {
         Start
       </button>
     </div>
-  )
+  );
 }
 
 export default App;
