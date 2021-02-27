@@ -14,21 +14,28 @@ export default function GeoData(props) {
     if (!data && props.start === true) {
       let newX = props.droppedPin[0];
       let newY = props.droppedPin[1];
+      console.log(newX);
+      console.log(newY);
       fetch(
         `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${newX}&lon=${newY}`
       )
         .then((res) => res.json())
         .then((jsonObj) => {
+          console.log(jsonObj.address)
           //   setData(jsonObj);
-          setCounty(jsonObj.address.county)
+          setCounty(jsonObj.address.county);
           setCity(jsonObj.address.city);
+        
+          // console.log(jsonObj.address.county);
+          // console.log(jsonObj.address.city);
+          //
         });
     }
   });
 
   return (
     <div>
-      <Panel start={props.start} county = {county} city = {city} droppedPin = {props.droppedPin} quitGame = {props.quitGame} />
+      <Panel start={props.start} county = {county} city = {city} droppedPin = {props.droppedPin} giveUp = {props.userGiveUp} />
     </div>
   );
 }

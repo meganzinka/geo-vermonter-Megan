@@ -10,7 +10,7 @@ import leafletPip from "leaflet-pip";
 import L, { map } from "leaflet";
 import { useState, useEffect } from "react";
 import MyComponent from "./MyComponent";
-import Compass from "./Compass";
+import Compass from "./Compass.js";
 import DisplayButtons from "./DisplayButtons";
 
 function Map(props) {

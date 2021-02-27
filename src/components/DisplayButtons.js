@@ -6,9 +6,9 @@ export default function DisplayButtons(props) {
 
       return (
         <div>
-          <button id="guess"> Guess </button>
-          <button id="quit">Quit </button>
-          <button id="give-up">I Give Up</button>
+          <button id="guess" onClick={props.Guess}> Guess </button>
+          <button id="quit" >Quit </button>
+          <button id="give-up" onClick={props.userGiveUp}  >I Give Up</button>
         </div> 
       );
     } else return null;
@@ -18,3 +18,6 @@ export default function DisplayButtons(props) {
     </div>
   );
 }
+
+
+//NEED ONCLICK EVENT FOR QUIT
