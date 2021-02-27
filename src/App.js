@@ -13,10 +13,11 @@ import leafletPip from "leaflet-pip";
 import L from "leaflet";
 import Guess from "./components/Guess";
 import DisplayButtonsProps from "./components/DisplayButtons";
+import GeoData from "./components/GeoData";
 
 //store the location where the pin was dropped
 
-let droppedPin;
+let tempVariable;
 // import {useMap} from 'leaflet'
 
 function App() {
@@ -25,31 +26,10 @@ function App() {
   const [zoom, setZoom] = useState(8);
   const [direction, setDirection] = useState("");
   const [start, setStart] = useState(false);
-  const [county, setCounty] = useState("");
-  const [data, setData] = useState("");
-  //const use state w/display
+  const [droppedPin, setDroppedPin] = useState("")
 
   let newX;
   let newY;
-
-  useEffect(() => {
-    if (data) {
-      console.log("this is in the use effect if (data) ")
-      return false;
-    }
-    else if (start === true) {
-      console.log("this is in the use effect if (!data) ")
-      fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=43.88&lon=-72.7317`, {method: "GET"}
-      ).then(
-        (res) => res.json()).then((jsonObj) => {
-          setData(jsonObj);
-          console.log(data);
-          console.log(jsonObj)
-          console.log("this is in the use effect if (data) ")
-        })
-    }
-  });
 
   function gameStart(evt) {
     let layers = 0;
@@ -69,9 +49,9 @@ function App() {
     }
     setCenter([newY, newX]);
     setZoom(18);
-    droppedPin = [newY, newX];
     evt.target.style.display = "none";
     setStart(true);
+    setDroppedPin([newY, newX]);
   }
   
 
@@ -82,13 +62,14 @@ function App() {
   return (
     <div>
       <Compass
-        center={center}
+        droppedPin = {droppedPin}
         changeDirection={changeDirection}
         direction={direction}
       />
+      <GeoData droppedPin = {droppedPin} start = {start}/>
+      <DisplayButtonsProps start={start}/>
       <Map center={center} zoom={zoom} />
-      <DisplayButtonsProps start={start} />
-      <Panel start={start} />
+
       {/* <GameBox /> */}
       {/* <Nav/> */}
       {/* <Directions /> */}
@@ -97,7 +78,7 @@ function App() {
         Start
       </button>
     </div>
-  );
+  )
 }
 
 export default App;

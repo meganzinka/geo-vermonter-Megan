@@ -1,9 +1,11 @@
 import React from "react";
+import { useState } from "react";
+import Panel from "./Panel";
 
-
-
-export default function DisplayButtons (props) {
-function DisplayButtonsProps() {
+export default function DisplayButtons(props) {
+  const [quitGame, setQuitGame] = useState(false);
+  function DisplayButtonsProps() {
+    // setQuitGame(true);
     console.log(props.start);
     if (props.start === true) {
       return (
@@ -18,8 +20,7 @@ function DisplayButtonsProps() {
   return (
     <div>
       <div> {DisplayButtonsProps()}</div>
+      {/* <Panel quitGame={quitGame} /> */}
     </div>
   );
 }
-
-
