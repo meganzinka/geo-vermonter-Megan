@@ -1,11 +1,8 @@
 // import React from "react";
 import L from "leaflet";
-
 import { useMap } from "react-leaflet";
-// import {useMap} from 'leaflet'
-// import leafletPip from "leaflet-pip";
-// import Map from "./Map.js";
-// import App from "../App.js";
+
+//this is what communicates zoom function as map container couldn't talk to app.js
 
 function MyComponent(props) {
   const map = useMap();
@@ -15,8 +12,6 @@ function MyComponent(props) {
 }
 
 export default MyComponent;
-// const [center, setCenter] = useState ("");
-// const [zoom, setZoom] = useState("");
 
 
 //issue is view and marker are moving together

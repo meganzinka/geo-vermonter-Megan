@@ -18,6 +18,7 @@ import Panel from "./components/Panel";
 //import { map } from "leaflet";
 // import {useMap} from 'leaflet'
 
+
 function App() {
   // const [view, setView] = useState([43.88, -72.7317]);
   const [center, setCenter] = useState([43.88, -72.7317]);
@@ -26,6 +27,7 @@ function App() {
   const [droppedPin, setDroppedPin] = useState("");
   const [userGiveUp, setUserGiveUp] = useState(false);
   const [location, setLocation] = useState({ county: "", city: "" });
+  const [win, setWin] = useState(false);
 
   //declare newX and newY to find new center
   let newX;
@@ -63,7 +65,7 @@ function App() {
     //store the new location in dropped pin
     setDroppedPin([newY, newX]);
   }
-
+//changing direction
   let changeDirection = (evt) => {
     if (evt.target.id === "north") {
       setCenter([center[0] + 0.002, center[1]]);
@@ -81,6 +83,7 @@ function App() {
 
   //identify if user pressed North, East, South, West
 
+  
   return (
     <div>
       <Map center={center} zoom={zoom} droppedPin={droppedPin} />
@@ -88,6 +91,10 @@ function App() {
         droppedPin={droppedPin}
         start={start}
         userGiveUp={setUserGiveUp}
+        location = {location}
+        setWin = {setWin}
+        win = {win}
+        
       />
       <Compass
         droppedPin={droppedPin}
@@ -100,6 +107,7 @@ function App() {
         userGiveUp={userGiveUp}
         setLocation={setLocation}
         location={location}
+        win = {win}
       />
 
       {/* <GameBox /> */}

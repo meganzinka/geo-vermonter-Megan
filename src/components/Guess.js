@@ -1,25 +1,38 @@
 import React from "react";
-// import  { useState, useEffect } from 'react';
+import { useState } from "react";
 
 
-
-export default function Guess(evt) {
- <select>
-  <option value="Addison">Addison County</option>
-  <option value="Bennington">Bennington County</option>
-  <option value="Caledonia">Caledonia County</option>
-  <option value="Chittenden">ChittendenCounty</option>
-  <option value="Essex">Essex County</option>
-  <option value="Franklin">Franklin County</option>
-  <option value="Grand-Isle">Grand Isle County</option>
-  <option value="Lamoille"> Lamoille County</option>
-  <option value="Orange"> Orange County</option>
-  <option value="Orleans"> Orleans County</option>
-  <option value="Rutland">Rutland County</option>
-  <option value="Washington">Washington County</option>
-  <option value="Windham"> Windham County</option>
-  <option value="Windsor"> Windsor County</option>
-</select>;
-
-  return <div></div>;
+//this is guess function, seeing that selected county from dropdown menu is same as pinpointed county 
+export default function Guess(props) {
+  function changeSelection(event) {
+    if (event.target.value === props.location.county) {
+      return console.log("Right pick!");
+      props.setTempWin(true);
+      console.log(props.tempWin);
+    } else console.log("you are wrong");
+  }
+//options of counties. default is to make sure that first choice (addison) is actually selected/clicked to translate that information 
+  if (props.guess === true) {
+    return (
+      <div>
+        <select onChange={changeSelection}>
+          <option value="default">Please pick a county : </option>
+          <option value="Addison County">Addison County</option>
+          <option value="Bennington County">Bennington County</option>
+          <option value="Caledonia County">Caledonia County</option>
+          <option value="Chittenden County">Chittenden County</option>
+          <option value="Essex County">Essex County</option>
+          <option value="Franklin County">Franklin County</option>
+          <option value="Grand-Isle County">Grand Isle County</option>
+          <option value="Lamoille County"> Lamoille County</option>
+          <option value="Orange County"> Orange County</option>
+          <option value="Orleans County"> Orleans County</option>
+          <option value="Rutland County">Rutland County</option>
+          <option value="Washington County">Washington County</option>
+          <option value="Windham County"> Windham County</option>
+          <option value="Windsor County"> Windsor County</option>
+        </select>
+      </div>
+    );
+  } else return null;
 }
