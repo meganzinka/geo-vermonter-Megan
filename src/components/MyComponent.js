@@ -17,3 +17,6 @@ function MyComponent(props) {
 export default MyComponent;
 // const [center, setCenter] = useState ("");
 // const [zoom, setZoom] = useState("");
+
+
+//issue is view and marker are moving together

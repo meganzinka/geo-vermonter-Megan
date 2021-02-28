@@ -8,7 +8,7 @@ export default function DisplayButtons(props) {
         <div>
           <button id="guess" onClick={props.Guess}> Guess </button>
           <button id="quit" >Quit </button>
-          <button id="give-up" onClick={props.userGiveUp}  >I Give Up</button>
+          <button id="give-up" onClick={() => {props.userGiveUp(true)}}  >I Give Up</button>
         </div> 
       );
     } else return null;

@@ -6,10 +6,10 @@ import Panel from "./Panel";
 // import DisplayButtons from './DisplayButtons'
 
 export default function GeoData(props) {
-  const [location, setLocation] = useState({county: "", city: ""});
+  // const [location, setLocation] = useState({county: "", city: ""});
 
   useEffect(() => {
-    if (!location && props.start === true) {
+    if (props.location.county === "" && props.start === true) {
       let newX = props.droppedPin[0];
       let newY = props.droppedPin[1];
       fetch(
@@ -17,27 +17,28 @@ export default function GeoData(props) {
       )
         .then((res) => res.json())
         .then((jsonObj) => {
+          console.log(jsonObj.address)
           if(jsonObj.address.town) {
-            setLocation({county: jsonObj.adddress.county, city: jsonObj.address.town}) 
+            props.setLocation({county: jsonObj.address.county, city: jsonObj.address.town}) 
           } else if (jsonObj.address.city) {
-            setLocation({county: jsonObj.adddress.county, city: jsonObj.address.city})
+            props.setLocation({county: jsonObj.address.county, city: jsonObj.address.city})
           } else if (jsonObj.address.village) {
-            setLocation({county: jsonObj.adddress.county, city: jsonObj.address.village})
+            props.setLocation({county: jsonObj.address.county, city: jsonObj.address.village})
           } else {
             console.log("if/else statement did not work")
           }
         });
     }
-    console.log(location)
+    console.log(props.location)
   });
 
   return (
     <div>
       <Panel
         start={props.start}
-        location={location}
+        location={props.location}
         droppedPin={props.droppedPin}
-        giveUp={props.userGiveUp}
+        userGiveUp={props.userGiveUp}
         // city = {city}
       />
     </div>

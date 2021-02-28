@@ -24,7 +24,8 @@ function App() {
   const [zoom, setZoom] = useState(8);
   const [start, setStart] = useState(false);
   const [droppedPin, setDroppedPin] = useState("");
-  const [giveUp, setGiveUp] = useState(false);
+  const [userGiveUp, setUserGiveUp] = useState(false);
+  const [location, setLocation] = useState({ county: "", city: "" });
 
   //declare newX and newY to find new center
   let newX;
@@ -63,16 +64,22 @@ function App() {
     setDroppedPin([newY, newX]);
   }
 
-  //identify if user pressed North, East, South, West
-
-  //identify is person gives up
-  let userGiveUp = (evt) => {
-    console.log(evt.target.id);
-    console.log("i clicked yes");
-    if (evt.target.id === "give-up") {
-      setGiveUp(true);
+  let changeDirection = (evt) => {
+    if (evt.target.id === "north") {
+      setCenter([center[0] + 0.002, center[1]]);
+    }
+    if (evt.target.id === "east") {
+      setCenter([center[0], center[1]+ 0.002]);
+    }
+    if (evt.target.id === "south") {
+      setCenter([center[0] - 0.002, center[1]]);
+    }
+    if (evt.target.id === "west") {
+      setCenter([center[0] , center[1]- 0.002]);
     }
   };
+
+  //identify if user pressed North, East, South, West
 
   return (
     <div>
@@ -80,13 +87,20 @@ function App() {
       <DisplayButtons
         droppedPin={droppedPin}
         start={start}
-        userGiveUp={userGiveUp}
+        userGiveUp={setUserGiveUp}
       />
       <Compass
         droppedPin={droppedPin}
         center={center}
+        changeDirection={changeDirection}
       />
-      <GeoData start={start} droppedPin={droppedPin} userGiveUp={userGiveUp} />
+      <GeoData
+        start={start}
+        droppedPin={droppedPin}
+        userGiveUp={userGiveUp}
+        setLocation={setLocation}
+        location={location}
+      />
 
       {/* <GameBox /> */}
       {/* <Nav/> */}

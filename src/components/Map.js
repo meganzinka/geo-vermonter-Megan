@@ -14,20 +14,19 @@ import Compass from "./Compass.js";
 import DisplayButtons from "./DisplayButtons";
 
 function Map(props) {
-  const [direction, setDirection] = useState("");
+  // const [direction, setDirection] = useState("");
 
   let vtOutline = borderData.geometry.coordinates[0].map((coords) => [
     coords[1],
     coords[0],
   ]);
 
-  let changeDirection = (evt) => {
-    setDirection(evt.target.id);
-  };
+  
 
   return (
     <MapContainer
       center={props.center}
+      //maybe dropped pin?
       zoom={8}
       scrollWheelZoom={false}
       doubleClickZoom={false}

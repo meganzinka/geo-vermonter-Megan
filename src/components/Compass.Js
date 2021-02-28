@@ -13,12 +13,10 @@ const Compass = (props) => {
   function moveCenter() {
     if (props.direction === "north") {
       setCenter([props.center[0] + 0.002, props.center[1]]);
+      //can adjust multiple states in here
+    
     }
   }
-
-  // const map = useMap();
-  // L.control.scale().addTo(map);
-  // map.setView(center, props.zoom);
   return (
     <div>
       <button
