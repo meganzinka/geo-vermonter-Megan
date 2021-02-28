@@ -35,13 +35,7 @@ function Map(props) {
       touchZoom={false}
       style={{ height: "600px", width: "600px" }}
     >
-      <Compass
-        droppedPin={props.droppedPin}
-        changeDirection={changeDirection}
-        direction={direction}
-        style={{ zIndex: 100}}
-        center={props.center}
-      />
+
       <MyComponent center={props.center} zoom={props.zoom} />
 
       <TileLayer

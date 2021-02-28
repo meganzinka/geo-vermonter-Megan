@@ -10,7 +10,7 @@ import { useMap } from "react-leaflet";
 function MyComponent(props) {
   const map = useMap();
   L.control.scale().addTo(map);
-map.setView(props.center, props.zoom);
+  map.setView(props.center, props.zoom);
   return null;
 }
 

@@ -57,8 +57,8 @@ function App() {
     evt.target.style.display = "none";
     //start game = true
     setStart(true);
-    //zoom in 
-    setZoom(18); 
+    //zoom in
+    setZoom(18);
     //store the new location in dropped pin
     setDroppedPin([newY, newX]);
   }
@@ -68,7 +68,7 @@ function App() {
   //identify is person gives up
   let userGiveUp = (evt) => {
     console.log(evt.target.id);
-    console.log('i clicked yes')
+    console.log("i clicked yes");
     if (evt.target.id === "give-up") {
       setGiveUp(true);
     }
@@ -76,12 +76,15 @@ function App() {
 
   return (
     <div>
-
-      <Map center={center} zoom={zoom} droppedPin = {droppedPin}/>
+      <Map center={center} zoom={zoom} droppedPin={droppedPin} />
       <DisplayButtons
         droppedPin={droppedPin}
         start={start}
         userGiveUp={userGiveUp}
+      />
+      <Compass
+        droppedPin={droppedPin}
+        center={center}
       />
       <GeoData start={start} droppedPin={droppedPin} userGiveUp={userGiveUp} />
 

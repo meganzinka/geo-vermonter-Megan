@@ -20,4 +20,4 @@ export default function DisplayButtons(props) {
 }
 
 
-//NEED ONCLICK EVENT FOR QUIT
+//NEED ONCLICK EVENT FOR QUIT  

@@ -16,7 +16,7 @@ const Compass = (props) => {
     }
   }
 
-  const map = useMap();
+  // const map = useMap();
   // L.control.scale().addTo(map);
   // map.setView(center, props.zoom);
   return (

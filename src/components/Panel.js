@@ -12,7 +12,7 @@ export default function Panel(props) {
     setCounty(props.county)
     setLat(props.droppedPin[0])
     setLong(props.droppedPin[1])
-    }
+    } 
   return (
     <div>
       <h3>Latitude: {lat}</h3>
