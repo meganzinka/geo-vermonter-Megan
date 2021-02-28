@@ -2,7 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import Map from "./components/Map";
 import GeoData from "./components/GeoData";
-import Compass from "./components/Compass";
+import Compass from "./components/Compass.js";
 import Score from "./components/Score";
 import borderData from "./data/border";
 import leafletPip from "leaflet-pip";
@@ -68,6 +68,7 @@ function App() {
   //identify is person gives up
   let userGiveUp = (evt) => {
     console.log(evt.target.id);
+    console.log('i clicked yes')
     if (evt.target.id === "give-up") {
       setGiveUp(true);
     }
@@ -80,9 +81,9 @@ function App() {
       <DisplayButtons
         droppedPin={droppedPin}
         start={start}
-        onClick={userGiveUp}
+        userGiveUp={userGiveUp}
       />
-      <GeoData start={start} droppedPin={droppedPin} giveUp={userGiveUp} />
+      <GeoData start={start} droppedPin={droppedPin} userGiveUp={userGiveUp} />
 
       {/* <GameBox /> */}
       {/* <Nav/> */}
