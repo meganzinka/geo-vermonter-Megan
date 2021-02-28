@@ -39,7 +39,7 @@ function Map(props) {
         droppedPin={props.droppedPin}
         changeDirection={changeDirection}
         direction={direction}
-        style={{ zIndex: 100 }}
+        style={{ zIndex: 100}}
         center={props.center}
       />
       <MyComponent center={props.center} zoom={props.zoom} />
