@@ -9,7 +9,7 @@ export default function GeoData(props) {
   const [location, setLocation] = useState({county: "", city: ""});
 
   useEffect(() => {
-    if (!location && props.start === true) {
+    if (location.county==="" && props.start === true) {
       let newX = props.droppedPin[0];
       let newY = props.droppedPin[1];
       fetch(
@@ -23,8 +23,6 @@ export default function GeoData(props) {
             setLocation({county: jsonObj.adddress.county, city: jsonObj.address.city})
           } else if (jsonObj.address.village) {
             setLocation({county: jsonObj.adddress.county, city: jsonObj.address.village})
-          } else {
-            console.log("if/else statement did not work")
           }
         });
     }
