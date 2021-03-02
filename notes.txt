@@ -1,11 +1,8 @@
 1. Do basic format/outline : Title, status bar, centering 
 
-7.) Guess the county -> pop-up modal dialog box asking "what county are we in?" -> list of vermont counties: 
-Counties: Addison, Bennington, Caledonia, Chittenden, Essex, Franklin, Grand Isle, Lamoille, Orange, Orleans, Washington, Windham, Windsor 
 
-9.) Click guess -> game fills in county name in INFO PANNEL & informs correct 
-
-OR 
+program quit button 
+onsubmit button, popup goes away 
 
 10.) Click guess -> incorrect -> score - 10, & informs "wrong" 
 

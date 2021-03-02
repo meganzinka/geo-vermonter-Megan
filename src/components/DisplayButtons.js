@@ -11,7 +11,7 @@ export default function DisplayButtons(props) {
       return (
         <div>
           <button id="guess" onClick={() => {props.setGuess(true)}}> Guess </button>
-          <button id="quit" >Quit </button>
+          <button id="quit" onClick={() => window.location.reload()} >Quit </button>
           <button id="give-up" onClick={() => {props.userGiveUp(true)}}  >I Give Up</button>
         </div> 
         

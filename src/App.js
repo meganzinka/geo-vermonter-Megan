@@ -97,7 +97,7 @@ function App() {
         setGuess={setGuess}
         guess={guess}
       />
-      <Compass
+      <Compass id = "compass"
         droppedPin={droppedPin}
         center={center}
         changeDirection={changeDirection}
@@ -117,7 +117,7 @@ function App() {
         win={win}
         setWin={setWin}
       />
-      <Panel
+      <Panel id = "panel"
         start={start}
         location={location}
         droppedPin={droppedPin}

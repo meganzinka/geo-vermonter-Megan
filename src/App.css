@@ -28,6 +28,8 @@
 }
 #App-wrapper {
   position: relative;
+  justify-content: center;
+  border-radius: 25%
 }
 
 #map {
