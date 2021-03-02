@@ -16,12 +16,16 @@ import DisplayButtons from "./DisplayButtons";
 function Map(props) {
   // const [direction, setDirection] = useState("");
 
+  //Vt outline given to use in starter code that outlines that state
   let vtOutline = borderData.geometry.coordinates[0].map((coords) => [
     coords[1],
     coords[0],
   ]);
 
   
+//mapcontainer - controls that zoom cannot be used, style, and initial zoom
+//tile layer
+// my component which allows info from map container and map to talk to app.js
 
   return (
     <MapContainer

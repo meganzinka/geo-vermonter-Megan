@@ -1,29 +1,12 @@
 import React from "react";
-// import {useMap} from 'react-leaflet'
-// import L from "leaflet"
 import { useState } from "react";
-import { useMap } from "react-leaflet";
-import L from "leaflet";
 
-
+//compass buttons that on click/mousedown will prompt the changedirection function
 const Compass = (props) => {
   const [center, setCenter] = useState(props.center);
-  console.log(props.direction);
-
-  function moveCenter() {
-    if (props.direction === "north") {
-      setCenter([props.center[0] + 0.002, props.center[1]]);
-      //can adjust multiple states in here
-    
-    }
-  }
   return (
     <div>
-      <button
-        id="north"
-        onMouseDown={props.changeDirection}
-        onMouseUp={moveCenter}
-      >
+      <button id="north" onMouseDown={props.changeDirection}>
         North
       </button>
       <button id="east" onMouseDown={props.changeDirection}>
@@ -40,8 +23,3 @@ const Compass = (props) => {
 };
 
 export default Compass;
-
-// }
-//     const map = useMap();
-//     L.control.scale().addTo(map);
-//   console.log(props.direction);

@@ -1,5 +1,6 @@
 import React from 'react'
 
+//this just starts game
 export default function GameBox(props) {
     return (
         <div>

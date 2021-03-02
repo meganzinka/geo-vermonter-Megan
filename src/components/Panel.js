@@ -1,13 +1,16 @@
 import React from "react";
 import { useState } from "react";
 
+
+//always set to/default as -  "?"  - unless player selects "I give up", then info is revealed
 export default function Panel(props) {
     const [lat, setLat] = useState("?");
     const [long, setLong] = useState("?");
     const [county, setCounty] = useState("?");
     const [town, setTown] = useState("?");
 
-    if (props.userGiveUp === true && county === "?") {
+    //if player selects i give up or wins and the county is still ? then set to info
+    if ((props.userGiveUp === true && county === "?") || (props.win === true && county ==="?")) {
     
     setCounty(props.location.county)
     setTown (props.location.city)
@@ -25,6 +28,4 @@ export default function Panel(props) {
     </div>
   );
 }
-//still need to do town/village and apparently a fucking hamlet
-
-/* <h3>latitude : {lat : `${newY}` ? `?`}</h3>  */
+//and reveal info in the return.
