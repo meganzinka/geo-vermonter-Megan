@@ -116,6 +116,7 @@ function App() {
         setGuess={setGuess}
         win={win}
         setWin={setWin}
+        setGuess = {setGuess}
       />
       <Panel id = "panel"
         start={start}

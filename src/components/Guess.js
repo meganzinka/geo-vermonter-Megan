@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import WinningMessage from "./WinningMessage"
 
 //this is guess function, seeing that selected county from dropdown menu is same as pinpointed county
 export default function Guess(props) {
@@ -7,9 +8,12 @@ export default function Guess(props) {
   function changeSelection(event) {
     if (event.target.value === props.location.county) {
       setTempWin(true);
+      props.setGuess(false);
+      <WinningMessage />
     } else console.log("you are wrong");
     setTempWin(false);
     console.log(props.location.county);
+    props.setGuess(false)
   }
   props.setWin(tempWin);
   //options of counties. default is to make sure that first choice (addison) is actually selected/clicked to translate that information
