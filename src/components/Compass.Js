@@ -3,7 +3,7 @@ import { useState } from "react";
 
 //compass buttons that on click/mousedown will prompt the changedirection function
 const Compass = (props) => {
-  const [center, setCenter] = useState(props.center);
+  
   return (
     <div>
       <button id="north" onMouseDown={props.changeDirection}>

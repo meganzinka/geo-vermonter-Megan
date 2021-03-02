@@ -1,31 +1,31 @@
-1. Do basic format/outline : Title, status bar, centering 
 
-7.) Guess the county -> pop-up modal dialog box asking "what county are we in?" -> list of vermont counties: 
-Counties: Addison, Bennington, Caledonia, Chittenden, Essex, Franklin, Grand Isle, Lamoille, Orange, Orleans, Washington, Windham, Windsor 
+- on guessSubmit -> create a popup which informs if correct or incorrect, score - 10
 
-9.) Click guess -> game fills in county name in INFO PANNEL & informs correct 
+- Fix marker moving 
 
-OR 
+- Return -> move back to initial location 
 
-10.) Click guess -> incorrect -> score - 10, & informs "wrong" 
+-  Create scoreboard 
+    - minus 1 point for each directional 
+    - minus 10 points for each guess 
 
-11.) Dialog box disappears 
+- click N, E, S, W -> leaves a dotted line between previous map location and current map location, keeps showing line for rest of game 
 
-OR 
+-  Make buttons not on display until game start 
 
-12.) User Clicks cancel & dialog disappears
+- When win -> game asks user for their name, saves name & score to a list of games 
 
-13.) click N, E, S, W -> map scrolls in that direction ~0.002 degrees, score decreases by 1 point 
+- select "high scores" from nav bar -> show list of games in score order 
+Having this state here, if you were to run your setCenter it would only change state on this page. It wouldn't communicate up the line to change your props.center even though your center variable on this page is being set to props.center
 
-14.) Return -> move back to initial location 
-________________________________________________________________________
+- Disable compass buttons until start 
 
-15.) click N, E, S, W -> leaves a dotted line between previous map location and current map location, keeps showing line for rest of game 
+- Fix  obscure zoom controls enabled, like using the + and - signs on the keyboard.
 
-16.) When win -> game asks user for their name, saves name & score to a list of games 
+- After a User clicks "I Give Up", the game doesn't stop playing. You can still pick a winning location. Disabling your other buttons could be a good way to indicate that the game has ended when they click "I Give Up"
 
-17.) select "high scores" from nav bar -> show list of games in score order 
+- Organization: A good practice for creating file structure is to put your CSS inside of a styles folder and to remove files that aren't being used, such as your App.test.js or your setupTests.js
 
-8.) Guess the county -> makes "Guess" and "cancel" buttons show up 
+- Putting the keyword return ignores everything that comes after it. so your props.setTempWin(true) and your console.log isn't being registered. You can move this to the bottom of your if statement to see those two things happen
 
-
+- Do basic format/outline : Title, status bar, centering 

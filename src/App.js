@@ -8,8 +8,8 @@ import borderData from "./data/border";
 import leafletPip from "leaflet-pip";
 import L from "leaflet";
 import DisplayButtons from "./components/DisplayButtons";
-import Guess from "./components/Guess"
-import Panel from './components/Panel'
+import Panel from "./components/Panel";
+import Guess from "./components/Guess";
 
 //--------some things we had imported but aren't working right now: ---------
 // import Guess from "./components/Guess";
@@ -27,11 +27,11 @@ function App() {
   const [droppedPin, setDroppedPin] = useState("");
   const [userGiveUp, setUserGiveUp] = useState(false);
   const [county, setCounty] = useState({county:""}) 
+  const [location, setLocation] = useState()
 
 
   const [win, setWin] = useState(false);
   const [guess, setGuess] = useState(false);
-
 
   //declare newX and newY to find new center
   let newX;
@@ -85,28 +85,22 @@ function App() {
     }
   };
 
-  let changeLocation = (obj) => {
-    console.log(obj.address.county)
-    setCounty({county: obj.address.county}); 
-    console.log(county)
-
-  }
-
-  //identify if user pressed North, East, South, West
-
   return (
-    <div>
-      <Map center={center} zoom={zoom} droppedPin={droppedPin} />
+    <div id="App-wrapper">
+      <div id = "map">
+      <Map  center={center} zoom={zoom} droppedPin={droppedPin} />
+      </div>
       <DisplayButtons
         droppedPin={droppedPin}
         start={start}
         userGiveUp={setUserGiveUp}
-        // location={location}
+        location={location}
         setWin={setWin}
         win={win}
-        setGuess = {setGuess}
+        setGuess={setGuess}
+        guess={guess}
       />
-      <Compass
+      <Compass id = "compass"
         droppedPin={droppedPin}
         center={center}
         changeDirection={changeDirection}
@@ -115,24 +109,26 @@ function App() {
         start={start}
         droppedPin={droppedPin}
         userGiveUp={userGiveUp}
-        setCounty={setCounty}
-        county={county}
+        setLocation={setLocation}
+        location={location}
         win={win}
-        changeLocation = {changeLocation}
-      />
-     <Panel
-        start={start}
-        droppedPin={droppedPin}
-        userGiveUp={userGiveUp}
-        county={county}
-        win = {win}
       />
       <Guess
-        // location={location}
+        location={location}
         guess={guess}
-        setWin = {setWin}
+        setGuess={setGuess}
+        win={win}
+        setWin={setWin}
+        setGuess = {setGuess}
       />
-
+      <Panel id = "panel"
+        start={start}
+        location={location}
+        droppedPin={droppedPin}
+        userGiveUp={userGiveUp}
+        win={win}
+        // city = {city}
+      />
       <Score />
       <button id="start-button" onClick={gameStart}>
         Start
