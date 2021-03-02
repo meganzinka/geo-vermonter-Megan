@@ -14,20 +14,23 @@ import Compass from "./Compass.js";
 import DisplayButtons from "./DisplayButtons";
 
 function Map(props) {
-  const [direction, setDirection] = useState("");
+  // const [direction, setDirection] = useState("");
 
+  //Vt outline given to use in starter code that outlines that state
   let vtOutline = borderData.geometry.coordinates[0].map((coords) => [
     coords[1],
     coords[0],
   ]);
 
-  let changeDirection = (evt) => {
-    setDirection(evt.target.id);
-  };
+  
+//mapcontainer - controls that zoom cannot be used, style, and initial zoom
+//tile layer
+// my component which allows info from map container and map to talk to app.js
 
   return (
     <MapContainer
       center={props.center}
+      //maybe dropped pin?
       zoom={8}
       scrollWheelZoom={false}
       doubleClickZoom={false}
@@ -36,7 +39,7 @@ function Map(props) {
       style={{ height: "600px", width: "600px" }}
     >
 
-      <MyComponent center={props.center} zoom={props.zoom} />
+      <MyComponent droppedPin = {props.droppedPin} center={props.center} zoom={props.zoom} />
 
       <TileLayer
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"

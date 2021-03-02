@@ -2,13 +2,14 @@ import "./App.css";
 import { useState } from "react";
 import Map from "./components/Map";
 import GeoData from "./components/GeoData";
-import Compass from "./components/Compass.js";
+import Compass from "./components/Compass";
 import Score from "./components/Score";
 import borderData from "./data/border";
 import leafletPip from "leaflet-pip";
 import L from "leaflet";
 import DisplayButtons from "./components/DisplayButtons";
 import Panel from "./components/Panel";
+import Guess from "./components/Guess";
 
 //--------some things we had imported but aren't working right now: ---------
 // import Guess from "./components/Guess";
@@ -24,7 +25,10 @@ function App() {
   const [zoom, setZoom] = useState(8);
   const [start, setStart] = useState(false);
   const [droppedPin, setDroppedPin] = useState("");
-  const [giveUp, setGiveUp] = useState(false);
+  const [userGiveUp, setUserGiveUp] = useState(false);
+  const [location, setLocation] = useState({ county: "", city: "" });
+  const [win, setWin] = useState(false);
+  const [guess, setGuess] = useState(false);
 
   //declare newX and newY to find new center
   let newX;
@@ -62,35 +66,65 @@ function App() {
     //store the new location in dropped pin
     setDroppedPin([newY, newX]);
   }
-
-  //identify if user pressed North, East, South, West
-
-  //identify is person gives up
-  let userGiveUp = (evt) => {
-    console.log(evt.target.id);
-    console.log("i clicked yes");
-    if (evt.target.id === "give-up") {
-      setGiveUp(true);
+  //changing direction
+  let changeDirection = (evt) => {
+    if (evt.target.id === "north") {
+      setCenter([center[0] + 0.002, center[1]]);
+    }
+    if (evt.target.id === "east") {
+      setCenter([center[0], center[1] + 0.002]);
+    }
+    if (evt.target.id === "south") {
+      setCenter([center[0] - 0.002, center[1]]);
+    }
+    if (evt.target.id === "west") {
+      setCenter([center[0], center[1] - 0.002]);
     }
   };
 
   return (
-    <div>
-      <Map center={center} zoom={zoom} droppedPin={droppedPin} />
+    <div id="App-wrapper">
+      <div id = "map">
+      <Map  center={center} zoom={zoom} droppedPin={droppedPin} />
+      </div>
       <DisplayButtons
         droppedPin={droppedPin}
         start={start}
-        userGiveUp={userGiveUp}
+        userGiveUp={setUserGiveUp}
+        location={location}
+        setWin={setWin}
+        win={win}
+        setGuess={setGuess}
+        guess={guess}
       />
       <Compass
         droppedPin={droppedPin}
         center={center}
+        changeDirection={changeDirection}
       />
-      <GeoData start={start} droppedPin={droppedPin} userGiveUp={userGiveUp} />
-
-      {/* <GameBox /> */}
-      {/* <Nav/> */}
-      {/* <Directions /> */}
+      <GeoData
+        start={start}
+        droppedPin={droppedPin}
+        userGiveUp={userGiveUp}
+        setLocation={setLocation}
+        location={location}
+        win={win}
+      />
+      <Guess
+        location={location}
+        guess={guess}
+        setGuess={setGuess}
+        win={win}
+        setWin={setWin}
+      />
+      <Panel
+        start={start}
+        location={location}
+        droppedPin={droppedPin}
+        userGiveUp={userGiveUp}
+        win={win}
+        // city = {city}
+      />
       <Score />
       <button id="start-button" onClick={gameStart}>
         Start

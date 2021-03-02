@@ -1,25 +1,45 @@
 import React from "react";
-// import  { useState, useEffect } from 'react';
+import { useState } from "react";
 
-
-
-export default function Guess(evt) {
- <select>
-  <option value="Addison">Addison County</option>
-  <option value="Bennington">Bennington County</option>
-  <option value="Caledonia">Caledonia County</option>
-  <option value="Chittenden">ChittendenCounty</option>
-  <option value="Essex">Essex County</option>
-  <option value="Franklin">Franklin County</option>
-  <option value="Grand-Isle">Grand Isle County</option>
-  <option value="Lamoille"> Lamoille County</option>
-  <option value="Orange"> Orange County</option>
-  <option value="Orleans"> Orleans County</option>
-  <option value="Rutland">Rutland County</option>
-  <option value="Washington">Washington County</option>
-  <option value="Windham"> Windham County</option>
-  <option value="Windsor"> Windsor County</option>
-</select>;
-
-  return <div></div>;
+//this is guess function, seeing that selected county from dropdown menu is same as pinpointed county
+export default function Guess(props) {
+  const [tempWin, setTempWin] = useState(false);
+  function changeSelection(event) {
+    if (event.target.value === props.location.county) {
+      setTempWin(true);
+    } else console.log("you are wrong");
+    setTempWin(false);
+    console.log(props.location.county);
+  }
+  props.setWin(tempWin);
+  //options of counties. default is to make sure that first choice (addison) is actually selected/clicked to translate that information
+  if (props.guess === true) {
+    return (
+      <div id="guess-county-wrapper">
+        <div id="guess-county">
+          <div id="submit-wrapper">
+            <select>
+              <option value="default">Please pick a county : </option>
+              <option value="Addison County">Addison County</option>
+              <option value="Bennington County">Bennington County</option>
+              <option value="Caledonia County">Caledonia County</option>
+              <option value="Chittenden County">Chittenden County</option>
+              <option value="Essex County">Essex County</option>
+              <option value="Franklin County">Franklin County</option>
+              <option value="Grand-Isle County">Grand Isle County</option>
+              <option value="Lamoille County"> Lamoille County</option>
+              <option value="Orange County"> Orange County</option>
+              <option value="Orleans County"> Orleans County</option>
+              <option value="Rutland County">Rutland County</option>
+              <option value="Washington County">Washington County</option>
+              <option value="Windham County"> Windham County</option>
+              <option value="Windsor County"> Windsor County</option>
+            </select>
+            <button onClick={changeSelection}>Submit</button>
+          </div>
+          <button onClick={() => props.setGuess(false)}>Cancel</button>
+        </div>
+      </div>
+    );
+  } else return null;
 }
