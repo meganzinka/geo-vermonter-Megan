@@ -101,6 +101,7 @@ function App() {
         droppedPin={droppedPin}
         center={center}
         changeDirection={changeDirection}
+        start = {start}
       />
       <GeoData
         start={start}
@@ -116,7 +117,6 @@ function App() {
         setGuess={setGuess}
         win={win}
         setWin={setWin}
-        setGuess = {setGuess}
       />
       <Panel id = "panel"
         start={start}

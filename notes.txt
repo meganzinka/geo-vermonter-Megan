@@ -1,35 +1,29 @@
-1. Do basic format/outline : Title, status bar, centering 
 
+- on guessSubmit -> create a popup which informs if correct or incorrect, score - 10
 
-1.) on guessSubmit -> create a popup which informs if correct or incorrect, score - 10
+- Fix marker moving
 
-2.) Fix marker moving 
+- Return -> move back to initial location
 
-3.) Return -> move back to initial location 
+-  Create scoreboard
+    - minus 1 point for each directional
+    - minus 10 points for each guess
 
-4.) Create scoreboard 
-    - minus 1 point for each directional 
-    - minus 10 points for each guess 
+- click N, E, S, W -> leaves a dotted line between previous map location and current map location, keeps showing line for rest of game
 
-5.) click N, E, S, W -> leaves a dotted line between previous map location and current map location, keeps showing line for rest of game 
+- When win -> game asks user for their name, saves name & score to a list of games
 
-5.5) Make buttons not on display until game start 
-
-6.) When win -> game asks user for their name, saves name & score to a list of games 
-
-7.) select "high scores" from nav bar -> show list of games in score order 
+- select "high scores" from nav bar -> show list of games in score order
 Having this state here, if you were to run your setCenter it would only change state on this page. It wouldn't communicate up the line to change your props.center even though your center variable on this page is being set to props.center
 
-8.) Disable compass buttons until start 
+- Disable compass buttons until start
 
-Your Direction buttons are all able to be clicked and used while the game hasn't started yet. You could use the same display features on your directions as you did for the start and guess buttons.
-(This is one of the stories) When the game starts there are still some of the more obscure zoom controls enabled, like using the + and - signs on the keyboard.
-After a User clicks "I Give Up", the game doesn't stop playing. You can still pick a winning location. Disabling your other buttons could be a good way to indicate that the game has ended when they click "I Give Up"
-Your guess dropdown doesn't have a button either, It just goes based on which one the user selects (but it looks like this is where ya'll ran out of time so this could be a good spot to keep working)
-Readability: Make sure you format!!!! a couple of your files would be much more readable with running a format, such as your GeoData.js file. Your variable names and function names are solid.
+- Fix  obscure zoom controls enabled, like using the + and - signs on the keyboard.
 
-Organization: A good practice for creating file structure is to put your CSS inside of a styles folder and to remove files that aren't being used, such as your App.test.js or your setupTests.js
+- After a User clicks "I Give Up", the game doesn't stop playing. You can still pick a winning location. Disabling your other buttons could be a good way to indicate that the game has ended when they click "I Give Up"
 
-Putting the keyword return ignores everything that comes after it. so your props.setTempWin(true) and your console.log isn't being registered. You can move this to the bottom of your if statement to see those two things happen
+- Organization: A good practice for creating file structure is to put your CSS inside of a styles folder and to remove files that aren't being used, such as your App.test.js or your setupTests.js
 
-Putting the keyword return ignores everything that comes after it. so your props.setTempWin(true) and your console.log isn't being registered. You can move this to the bottom of your if statement to see those two things happen
+- Putting the keyword return ignores everything that comes after it. so your props.setTempWin(true) and your console.log isn't being registered. You can move this to the bottom of your if statement to see those two things happen
+
+- Do basic format/outline : Title, status bar, centering 

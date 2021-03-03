@@ -1,20 +1,27 @@
 import React from "react";
 import { useState } from "react";
-import WinningMessage from "./WinningMessage"
+import WinningMessage from "./WinningMessage";
+import LosingMessage from "./LosingMessage"
 
 //this is guess function, seeing that selected county from dropdown menu is same as pinpointed county
 export default function Guess(props) {
   const [tempWin, setTempWin] = useState(false);
+  const [selected, setSelected] = useState("");
   function changeSelection(event) {
+    console.log(props.location.county);
+    console.log(event.target.value);
     if (event.target.value === props.location.county) {
       setTempWin(true);
       props.setGuess(false);
-      <WinningMessage />
-    } else console.log("you are wrong");
-    setTempWin(false);
-    console.log(props.location.county);
-    props.setGuess(false)
+      console.log("user wins");
+    } else if (event.target.value !== props.location.county) {
+      console.log("you are wrong");
+      setTempWin(false);
+      console.log("inside else", props.location.county);
+      props.setGuess(false);
+    }
   }
+
   props.setWin(tempWin);
   //options of counties. default is to make sure that first choice (addison) is actually selected/clicked to translate that information
   if (props.guess === true) {
@@ -22,7 +29,7 @@ export default function Guess(props) {
       <div id="guess-county-wrapper">
         <div id="guess-county">
           <div id="submit-wrapper">
-            <select>
+            <select name="county" onChange={changeSelection}>
               <option value="default">Please pick a county : </option>
               <option value="Addison County">Addison County</option>
               <option value="Bennington County">Bennington County</option>
@@ -39,11 +46,17 @@ export default function Guess(props) {
               <option value="Windham County"> Windham County</option>
               <option value="Windsor County"> Windsor County</option>
             </select>
-            <button onClick={changeSelection}>Submit</button>
+            <button value="submit button" type="submit">
+              Submit
+            </button>
           </div>
           <button onClick={() => props.setGuess(false)}>Cancel</button>
         </div>
       </div>
     );
-  } else return null;
+  } else if (props.guess === false && tempWin === true) {
+    return <WinningMessage />;
+  } else  {
+    return <LosingMessage />;
+  }
 }

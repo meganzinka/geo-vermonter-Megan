@@ -1,12 +1,10 @@
 import React from "react";
-import Guess from "./Guess"
-import {useState} from 'react'
 
 //our buttons for guess, quit, i give up
 
 export default function DisplayButtons(props) {
 
-    if (props.start === true) {
+    if (props.start) {
 
       return (
         <div>

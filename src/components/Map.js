@@ -7,14 +7,11 @@ import {
 } from "react-leaflet";
 import borderData from "../data/border";
 import leafletPip from "leaflet-pip";
-import L, { map } from "leaflet";
-import { useState, useEffect } from "react";
+// import L, { map } from "leaflet";
 import MyComponent from "./MyComponent";
-import Compass from "./Compass.js";
-import DisplayButtons from "./DisplayButtons";
+
 
 function Map(props) {
-  // const [direction, setDirection] = useState("");
 
   //Vt outline given to use in starter code that outlines that state
   let vtOutline = borderData.geometry.coordinates[0].map((coords) => [

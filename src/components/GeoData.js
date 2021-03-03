@@ -1,6 +1,6 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import Panel from "./Panel";
+import { useEffect} from "react";
+
 
 //GeoData is sourcing specific location details from nominatim.
 export default function GeoData(props) {

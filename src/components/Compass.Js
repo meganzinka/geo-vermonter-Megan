@@ -1,10 +1,8 @@
 import React from "react";
-import { useState } from "react";
-import { useMap } from "react-leaflet";
-import L from "leaflet";
 
 //compass buttons that on click/mousedown will prompt the changedirection function
 const Compass = (props) => {
+  if (props.start) {
   
   return (
     <div>
@@ -25,6 +23,7 @@ const Compass = (props) => {
       </button>
     </div>
   );
+} else return null 
 };
 
 export default Compass;
