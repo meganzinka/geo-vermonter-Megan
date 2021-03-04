@@ -20,7 +20,7 @@ const Message = (props) => {
         <div class="message">
           <h1>Sucks to Suck!</h1>
           <h3>You lose 10 points.</h3>
-          <button onClick = {exitMessage}>Exit</button>
+          <button onClick = {props.setDisplayMessage(false)}>Exit</button>
         </div>
       </div>
     );

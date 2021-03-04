@@ -6,12 +6,8 @@ import Message from "./Message"
 export default function Guess(props) {
   const [tempWin, setTempWin] = useState(false);
   const [displayMessage, setDisplayMessage] = useState(false);
-  const [chosenCounty, setChosenCounty] = useState(""); 
 
   function changeSelection(event) {
-    console.log("props.location.county: ", props.location.county);
-    console.log("event.target.value", event.target.value);
-    console.log(chosenCounty)
     if (event.target.value === props.location.county) {
       setTempWin(true);
       props.setGuess(false);
@@ -26,12 +22,6 @@ export default function Guess(props) {
     }
   }
 
-  function handleChange(event) {
-    let name =event.target.name;
-    setChosenCounty(name)
-    console.log(name)
-    console.log(chosenCounty)
-  }
   props.setWin(tempWin);
   //options of counties. default is to make sure that first choice (addison) is actually selected/clicked to translate that information
   if (props.guess === true) {
@@ -39,7 +29,7 @@ export default function Guess(props) {
       <div id="guess-county-wrapper">
         <div id="guess-county">
           <div id="submit-wrapper">
-            <select name="county" onClick = {changeSelection} >
+            <select name="county" onChange= {changeSelection} >
               <option value="default" >Please pick a county : </option>
               <option value="Addison County">Addison County</option>
               <option value="Bennington County">Bennington County</option>
@@ -56,7 +46,7 @@ export default function Guess(props) {
               <option value="Windham County"> Windham County</option>
               <option value="Windsor County"> Windsor County</option>
             </select>
-            <button value="submit-button" type="submit">
+            <button >
               Submit
             </button>
           </div>
