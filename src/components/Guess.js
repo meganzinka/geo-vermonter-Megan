@@ -1,27 +1,37 @@
 import React from "react";
 import { useState } from "react";
-import WinningMessage from "./WinningMessage";
-import LosingMessage from "./LosingMessage"
+import Message from "./Message"
 
 //this is guess function, seeing that selected county from dropdown menu is same as pinpointed county
 export default function Guess(props) {
   const [tempWin, setTempWin] = useState(false);
-  const [selected, setSelected] = useState("");
+  const [displayMessage, setDisplayMessage] = useState(false);
+  const [chosenCounty, setChosenCounty] = useState(""); 
+
   function changeSelection(event) {
-    console.log(props.location.county);
-    console.log(event.target.value);
+    console.log("props.location.county: ", props.location.county);
+    console.log("event.target.value", event.target.value);
+    console.log(chosenCounty)
     if (event.target.value === props.location.county) {
       setTempWin(true);
       props.setGuess(false);
       console.log("user wins");
+      setDisplayMessage("win")
     } else if (event.target.value !== props.location.county) {
       console.log("you are wrong");
       setTempWin(false);
       console.log("inside else", props.location.county);
       props.setGuess(false);
+      setDisplayMessage("lose")
     }
   }
 
+  function handleChange(event) {
+    let name =event.target.name;
+    setChosenCounty(name)
+    console.log(name)
+    console.log(chosenCounty)
+  }
   props.setWin(tempWin);
   //options of counties. default is to make sure that first choice (addison) is actually selected/clicked to translate that information
   if (props.guess === true) {
@@ -29,8 +39,8 @@ export default function Guess(props) {
       <div id="guess-county-wrapper">
         <div id="guess-county">
           <div id="submit-wrapper">
-            <select name="county" onChange={changeSelection}>
-              <option value="default">Please pick a county : </option>
+            <select name="county" onClick = {changeSelection} >
+              <option value="default" >Please pick a county : </option>
               <option value="Addison County">Addison County</option>
               <option value="Bennington County">Bennington County</option>
               <option value="Caledonia County">Caledonia County</option>
@@ -46,7 +56,7 @@ export default function Guess(props) {
               <option value="Windham County"> Windham County</option>
               <option value="Windsor County"> Windsor County</option>
             </select>
-            <button value="submit button" type="submit">
+            <button value="submit-button" type="submit">
               Submit
             </button>
           </div>
@@ -54,9 +64,7 @@ export default function Guess(props) {
         </div>
       </div>
     );
-  } else if (props.guess === false && tempWin === true) {
-    return <WinningMessage />;
-  } else  {
-    return <LosingMessage />;
+  } else if (!props.guess && displayMessage) {
+    return (<Message displayMessage = {displayMessage} setdisplayMessage = {setDisplayMessage} />);
+  } else return null 
   }
-}

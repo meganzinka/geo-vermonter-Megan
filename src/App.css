@@ -43,7 +43,7 @@ body {
   align-content: center;
 }
 
-#winning-message-wrapper {
+.message-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +59,7 @@ body {
   z-index: 10000;
 }
 
-#winning-message {
+.message {
   height: 40vh;
   width: 60vw;
   border-radius: 20px;
