@@ -1,0 +1,123 @@
+#guess-county-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+}
+
+#guess-county {
+  height: 30vh;
+  width: 30vw;
+  border-radius: 20px;
+  border: solid black 2px;
+  background-color: bisque;
+  padding: 10px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+body {
+  align-content: center;
+  font-family: Avenir;
+}
+
+.message-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+}
+
+.message {
+  height: 40vh;
+  width: 60vw;
+  border-radius: 20px;
+  border: solid black 2px;
+  background-color: bisque;
+  padding: 10px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  font-size: x-large;
+}
+#App-wrapper {
+  position: relative;
+  justify-content: center;
+  border-radius: 25%;
+  display: grid;
+  grid-template-columns: 1fr 600px 1fr;
+  grid-template-rows: 1fr 2fr 2fr;
+  grid-gap: 10px;
+}
+#compass-container {
+  grid-column: 1;
+  grid-row: 2; 
+}
+#map {
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  grid-row: 2/4;
+  grid-column: 2;
+}
+#header {
+  grid-column: 1/4;
+  grid-row: 1; 
+  text-align: center; 
+  font-size: 4em;
+  color: #ddbea9;
+  background-color: #6b705c;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+#panel-container {
+  grid-column: 3;
+  grid-row: 2;
+  border: solid 15px #ddbea9;
+  margin-right: 15px; 
+  border-radius: 5%;
+}
+
+#start-button {
+  grid-column: 3;
+  grid-row: 3;
+  text-align: center;
+  height: 2vw;
+  width: 7vw;
+  background-color: #cb997e;
+  color: white;
+  font-size: 1vw;
+  border: 0;
+  border-radius: 5%;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 2px #d8d8d8;
+  border: black solid 2px;
+}
+
+#display-buttons-container {
+  grid-column: 3;
+  grid-row: 3; 
+}

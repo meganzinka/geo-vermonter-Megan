@@ -1,4 +1,4 @@
-import "./App.css";
+import "./style/App.css";
 import { useState } from "react";
 import Map from "./components/Map";
 import GeoData from "./components/GeoData";
@@ -11,16 +11,7 @@ import DisplayButtons from "./components/DisplayButtons";
 import Panel from "./components/Panel";
 import Guess from "./components/Guess";
 
-//--------some things we had imported but aren't working right now: ---------
-// import Guess from "./components/Guess";
-// import GameBox from "./components/Gamebox";
-// import Nav from "./components/Nav";
-// import Directions from "./components/Compass";
-//import { map } from "leaflet";
-// import {useMap} from 'leaflet'
-
 function App() {
-  // const [view, setView] = useState([43.88, -72.7317]);
   const [center, setCenter] = useState([43.88, -72.7317]);
   const [zoom, setZoom] = useState(8);
   const [start, setStart] = useState(false);
@@ -84,25 +75,29 @@ function App() {
 
   return (
     <div id="App-wrapper">
+      <header id ="header">Geo-Vermonter: Guess the County</header>
       <div id = "map">
       <Map  center={center} zoom={zoom} droppedPin={droppedPin} />
       </div>
+      <div id="display-buttons-container">
       <DisplayButtons
         droppedPin={droppedPin}
         start={start}
-        userGiveUp={setUserGiveUp}
+        setStart = {setStart}
+        setUserGiveUp={setUserGiveUp}
         location={location}
         setWin={setWin}
         win={win}
         setGuess={setGuess}
         guess={guess}
-      />
+      /></div>
+      <div id = "compass-container">
       <Compass id = "compass"
         droppedPin={droppedPin}
         center={center}
         changeDirection={changeDirection}
         start = {start}
-      />
+      /></div>
       <GeoData
         start={start}
         droppedPin={droppedPin}
@@ -118,14 +113,14 @@ function App() {
         win={win}
         setWin={setWin}
       />
+      <div id="panel-container">
       <Panel id = "panel"
         start={start}
         location={location}
         droppedPin={droppedPin}
         userGiveUp={userGiveUp}
         win={win}
-        // city = {city}
-      />
+      /></div>
       <Score />
       <button id="start-button" onClick={gameStart}>
         Start
