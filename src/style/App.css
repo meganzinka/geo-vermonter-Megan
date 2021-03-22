@@ -121,3 +121,8 @@ body {
   grid-column: 3;
   grid-row: 3; 
 }
+
+#score-wrapper {
+  grid-column: 1;
+  grid-row: 3; 
+}

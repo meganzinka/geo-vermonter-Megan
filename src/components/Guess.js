@@ -25,6 +25,8 @@ export default function Guess(props) {
       props.setGuess(false);
       //set the message in popup to be the losing message 
       setDisplayMessage("lose")
+      //subtract 10 pints 
+      props.setScore(props.score - 10)
     }
   }
 
@@ -67,6 +69,6 @@ export default function Guess(props) {
     );
       // show winning or losing message depending on submitGuess function
   } else if (!props.guess && displayMessage) {
-    return (<Message displayMessage = {displayMessage} setdisplayMessage = {setDisplayMessage} />);
+    return (<Message score = {props.score} displayMessage = {displayMessage} setdisplayMessage = {setDisplayMessage} />);
   } else return null 
   }

@@ -8,7 +8,7 @@ const [hidden, setHidden] = useState(false)
       <div class="message-wrapper" style ={hidden? {display: 'none'} : {display: 'flex'}}>
         <div class="message">
           <h1> Congratulations, you won!</h1>
-          <h3> Your score was a score!</h3>
+          <h3> Your was score was: {props.score}!</h3>
           <button onClick = {function () {
             setHidden(true)
           }}>Exit</button>
@@ -21,6 +21,7 @@ const [hidden, setHidden] = useState(false)
         <div class="message">
           <h1>Sucks to Suck!</h1>
           <h3>You lose 10 points.</h3>
+          <h3> Current Score: {props.score}</h3>
           <button onClick = {function () {
             setHidden(true)
           }}>Exit</button>

@@ -1,21 +1,11 @@
 
-- on guessSubmit -> score - 10
 
-- Return -> move back to initial location
-
--  Create scoreboard
-    - minus 1 point for each directional
-    - minus 10 points for each guess
-
-- click N, E, S, W -> leaves a dotted line between previous map location and current map location, keeps showing line for rest of game
-
-
-- Fix  obscure zoom controls enabled, like using the + and - signs on the keyboard.
-
+- make guess button go away upon win 
 
 - Do basic format/outline : Title, status bar, centering 
 
 Icebox: 
+
 - When win -> game asks user for their name, saves name & score to a list of games
 
 - select "high scores" from nav bar -> show list of games in score order

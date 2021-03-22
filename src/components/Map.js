@@ -9,9 +9,11 @@ import borderData from "../data/border";
 import leafletPip from "leaflet-pip";
 // import L, { map } from "leaflet";
 import MyComponent from "./MyComponent";
+import {useState} from "react"
 
 
 function Map(props) {
+
 
   //Vt outline given to use in starter code that outlines that state
   let vtOutline = borderData.geometry.coordinates[0].map((coords) => [
@@ -47,6 +49,13 @@ function Map(props) {
         positions={vtOutline}
         pathOptions={{ color: "orange", fillOpacity: 0 }}
       />
+
+        {props.oldCenter ? (<Polyline positions={[
+          [props.oldCenter[0], props.oldCenter[1]], 
+          [props.center[0], props.center[1]],
+        ]} dashArray= {'20 20'}
+          />) : null}
+
     </MapContainer>
   );
 }

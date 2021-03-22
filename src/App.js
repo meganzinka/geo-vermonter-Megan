@@ -20,7 +20,9 @@ function App() {
   const [location, setLocation] = useState({ county: "", city: "" });
   const [win, setWin] = useState(false);
   const [guess, setGuess] = useState(false);
-
+  const [returnToStart, setReturnToStart] = useState(false)
+  const [score, setScore] = useState(100)
+  const [oldCenter, setOldCenter] = useState()
   //declare newX and newY to find new center
   let newX;
   let newY;
@@ -58,26 +60,41 @@ function App() {
     setDroppedPin([newY, newX]);
   }
   //changing direction
+
   let changeDirection = (evt) => {
     if (evt.target.id === "north") {
+      setOldCenter(center)
       setCenter([center[0] + 0.002, center[1]]);
+      setScore(score -1)
     }
     if (evt.target.id === "east") {
+      setOldCenter(center)
       setCenter([center[0], center[1] + 0.002]);
+      setScore(score -1)
     }
     if (evt.target.id === "south") {
+      setOldCenter(center)
       setCenter([center[0] - 0.002, center[1]]);
+      setScore(score -1)
     }
+
     if (evt.target.id === "west") {
+      setOldCenter(center)
       setCenter([center[0], center[1] - 0.002]);
+      setScore(score -1)
     }
   };
+
+  if (returnToStart) {
+    setCenter(droppedPin)
+    setReturnToStart(false)
+  }
 
   return (
     <div id="App-wrapper">
       <header id ="header">Geo-Vermonter: Guess the County</header>
       <div id = "map">
-      <Map  center={center} zoom={zoom} droppedPin={droppedPin} />
+      <Map  center={center} zoom={zoom} droppedPin={droppedPin} returnToStart = {returnToStart} oldCenter={oldCenter} />
       </div>
       <div id="display-buttons-container">
       <DisplayButtons
@@ -90,6 +107,7 @@ function App() {
         win={win}
         setGuess={setGuess}
         guess={guess}
+        setReturnToStart = {setReturnToStart}
       /></div>
       <div id = "compass-container">
       <Compass id = "compass"
@@ -112,6 +130,8 @@ function App() {
         setGuess={setGuess}
         win={win}
         setWin={setWin}
+        setScore = {setScore}
+        score = {score}
       />
       <div id="panel-container">
       <Panel id = "panel"
@@ -121,7 +141,9 @@ function App() {
         userGiveUp={userGiveUp}
         win={win}
       /></div>
-      <Score />
+      <div id="score-wrapper">
+      <Score score={score} id = "score" />
+      </div>
       <button id="start-button" onClick={gameStart}>
         Start
       </button>

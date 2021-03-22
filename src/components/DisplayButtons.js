@@ -10,11 +10,16 @@ function giveUp (event) {
   props.setStart(false)
   setNewGame(true) }
 
+function goBack (event) { 
+  props.setReturnToStart(true)
+}
+
     if (props.start) {
 //buttons for guess, quit, i give up
       return (
         <div>
           <button id="guess" onClick={() => {props.setGuess(true)}}> Guess </button>
+          <button id="return-to-start" onClick={goBack}>Return</button>
           <button id="quit" onClick={() => window.location.reload()} >Quit </button>
           <button id="give-up" onClick={giveUp}  >I Give Up</button>
         </div> 
