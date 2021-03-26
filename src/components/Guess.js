@@ -6,6 +6,8 @@ import WinningMessage from "./WinningMessage"
 export default function Guess(props) {
   const [tempWin, setTempWin] = useState(false);
   function changeSelection(event) {
+    console.log(props.location.county)
+    console.log(event.target.value)
     if (event.target.value === props.location.county) {
       setTempWin(true);
       props.setGuess(false);

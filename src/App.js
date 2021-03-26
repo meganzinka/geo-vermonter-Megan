@@ -26,8 +26,7 @@ function App() {
   const [start, setStart] = useState(false);
   const [droppedPin, setDroppedPin] = useState("");
   const [userGiveUp, setUserGiveUp] = useState(false);
-  const [county, setCounty] = useState({county:""}) 
-  const [location, setLocation] = useState()
+  const [location, setLocation] = useState({county:"", town: ""})
 
 
   const [win, setWin] = useState(false);
