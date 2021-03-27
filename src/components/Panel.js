@@ -4,6 +4,7 @@ import { useState } from "react";
 
 //always set to/default as -  "?"  - unless player selects "I give up", then info is revealed
 export default function Panel(props) {
+  //start off all as ? and set locations if someone wins or gives up 
     const [lat, setLat] = useState("?");
     const [long, setLong] = useState("?");
     const [county, setCounty] = useState("?");
@@ -24,7 +25,6 @@ export default function Panel(props) {
       <h3>Longitude: {long}</h3>
       <h3>County: {county}</h3>
       <h3>Town: {town}</h3>
-
     </div>
   );
 }

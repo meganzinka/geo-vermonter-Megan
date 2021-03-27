@@ -1,0 +1,155 @@
+/* ----- General Body Design ----- */
+#header {
+  grid-column: 1/4;
+  grid-row: 1; 
+  text-align: center; 
+  font-size: 4em;
+  color: white;
+  background-color: #6b705c;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+body {
+  align-content: center;
+  /* font-family: Avenir; */
+}
+
+button {
+  grid-column: 3;
+  grid-row: 3;
+  text-align: center;
+  height: 2vw;
+  width: 7vw;
+  background-color: #a5a58d;
+  color: white;
+  font-size: 1vw;
+  border: 0;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 2px #806d6d;
+  margin: 5px;
+}
+
+#App-wrapper {
+  position: relative;
+  justify-content: center;
+  border-radius: 25%;
+  display: grid;
+  grid-template-columns: 1fr 600px 1fr;
+  grid-template-rows: 1fr 2fr 2fr;
+  grid-gap: 10px;
+}
+
+/* ----- Component Container Design ----- */
+
+#panel-container {
+  grid-column: 3;
+  grid-row: 2;
+  margin-right: 15px; 
+  border-radius: 5%;
+  background-color: #6b705c;
+  color:white;
+  font-size: large;
+  padding: 5px;
+  box-shadow: 3px 3px 2px #3f4238;
+  height: 20vw;
+}
+
+#score-wrapper {
+  grid-column: 1;
+  grid-row: 2; 
+  background-color: #6b705c;
+  color:white;
+  font-size: x-large;
+  text-align: center;
+  border-radius: 5px;
+  height: 15vw;
+  padding-top: 2vw;
+  padding-bottom: 1vw;
+  margin: 10px;
+  box-shadow: 3px 3px 2px #3f4238;
+}
+
+#display-buttons-container {
+  grid-column: 3;
+  grid-row: 3; 
+}
+
+#compass-container {
+  grid-column: 1;
+  grid-row: 3; 
+}
+
+#map {
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  grid-row: 2/4;
+  grid-column: 2;
+}
+
+/* ----- Guess the County Popup ----- */
+#guess-county-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+}
+
+#guess-county {
+  height: 15vh;
+  width: 20vw;
+  border-radius: 4px;
+  color: #283618;
+  background-color: #edf6f9;
+  padding: 10px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.guess-button {
+  display: inline;
+}
+
+/* ----- Winning/Losing Message Popup ----- */
+.message-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+}
+
+.message {
+  height: 60vh;
+  width: 40vw;
+  border-radius: 10px;
+  background-color: #edf6f9;
+  padding: 10px;
+  display:flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  text-align: center;
+  font-size: x-large;
+}
+

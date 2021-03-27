@@ -1,5 +1,6 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
+
 
 //GeoData is sourcing specific location details from nominatim.
 export default function GeoData(props) {
@@ -35,7 +36,5 @@ export default function GeoData(props) {
         });
     }
   });
-  
-  //Panel is our information of lat/long/location. this is child of geodata, we are also passes thru the i give up function
-  return <div></div>;
+    return <div></div>;
 }

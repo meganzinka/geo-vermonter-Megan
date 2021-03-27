@@ -1,4 +1,5 @@
 const borderData = {
+  //outline of VT 
   "type": "Feature",
   "properties": {
     "name": "Vermont",

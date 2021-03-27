@@ -1,4 +1,4 @@
-import "./App.css";
+import "./style/App.css";
 import { useState } from "react";
 import Map from "./components/Map";
 import GeoData from "./components/GeoData";
@@ -11,27 +11,31 @@ import DisplayButtons from "./components/DisplayButtons";
 import Panel from "./components/Panel";
 import Guess from "./components/Guess";
 
-//--------some things we had imported but aren't working right now: ---------
-// import Guess from "./components/Guess";
-// import GameBox from "./components/Gamebox";
-// import Nav from "./components/Nav";
-// import Directions from "./components/Compass";
-//import { map } from "leaflet";
-// import {useMap} from 'leaflet'
-
 function App() {
-  // const [view, setView] = useState([43.88, -72.7317]);
+  //starting center location, use setSenter to change center based on random point, N E S W directionals
   const [center, setCenter] = useState([43.88, -72.7317]);
+  //starting zoom 
   const [zoom, setZoom] = useState(8);
+  //use start to signify when the game has been started 
   const [start, setStart] = useState(false);
+  //droppedPin is random location in VT 
   const [droppedPin, setDroppedPin] = useState("");
+  //use userGiveUp to signify if the user clicks this button and ends game 
   const [userGiveUp, setUserGiveUp] = useState(false);
+  //location object to store county and town of dropped pin 
   const [location, setLocation] = useState({county:"", town: ""})
-
-
+  //newGame to pop up after a game has been won or ended 
+  const [newGame, setNewGame] = useState()
+  //store status of winning
   const [win, setWin] = useState(false);
+  //guess state to store if user would like to make a guess or not 
   const [guess, setGuess] = useState(false);
-
+  //bring back user to original dropped pin if they used directionals 
+  const [returnToStart, setReturnToStart] = useState(false)
+  //score 
+  const [score, setScore] = useState(100)
+  //old center stored to draw Polyline from point to point 
+  const [oldCenter, setOldCenter] = useState()
   //declare newX and newY to find new center
   let newX;
   let newY;
@@ -71,39 +75,61 @@ function App() {
   //changing direction
   let changeDirection = (evt) => {
     if (evt.target.id === "north") {
+      setOldCenter(center)
       setCenter([center[0] + 0.002, center[1]]);
+      setScore(score -1)
     }
     if (evt.target.id === "east") {
+      setOldCenter(center)
       setCenter([center[0], center[1] + 0.002]);
+      setScore(score -1)
     }
     if (evt.target.id === "south") {
+      setOldCenter(center)
       setCenter([center[0] - 0.002, center[1]]);
+      setScore(score -1)
     }
+
     if (evt.target.id === "west") {
+      setOldCenter(center)
       setCenter([center[0], center[1] - 0.002]);
+      setScore(score -1)
     }
   };
 
+  if (returnToStart) {
+    setCenter(droppedPin)
+    setReturnToStart(false)
+  }
+
   return (
     <div id="App-wrapper">
+      <header id ="header">Geo-Vermonter: Guess the County</header>
       <div id = "map">
-      <Map  center={center} zoom={zoom} droppedPin={droppedPin} />
+      <Map  center={center} zoom={zoom} droppedPin={droppedPin} returnToStart = {returnToStart} oldCenter={oldCenter} />
       </div>
+      <div id="display-buttons-container">
       <DisplayButtons
         droppedPin={droppedPin}
         start={start}
-        userGiveUp={setUserGiveUp}
+        setStart = {setStart}
+        setUserGiveUp={setUserGiveUp}
         location={location}
         setWin={setWin}
         win={win}
         setGuess={setGuess}
         guess={guess}
-      />
+        newGame = {newGame}
+        setNewGame = {setNewGame}
+        setReturnToStart = {setReturnToStart}
+      /></div>
+      <div id = "compass-container">
       <Compass id = "compass"
         droppedPin={droppedPin}
         center={center}
         changeDirection={changeDirection}
-      />
+        start = {start}
+      /></div>
       <GeoData
         start={start}
         droppedPin={droppedPin}
@@ -118,17 +144,24 @@ function App() {
         setGuess={setGuess}
         win={win}
         setWin={setWin}
-        setGuess = {setGuess}
+        setScore = {setScore}
+        score = {score}
+        userGiveUp = {userGiveUp}
+        setUserGiveUp = {setUserGiveUp}
+        setStart = {setStart}
+        setNewGame ={setNewGame}
       />
+      <div id="panel-container">
       <Panel id = "panel"
         start={start}
         location={location}
         droppedPin={droppedPin}
         userGiveUp={userGiveUp}
         win={win}
-        // city = {city}
-      />
-      <Score />
+      /></div>
+      <div id="score-wrapper">
+      <Score score={score} id = "score" />
+      </div>
       <button id="start-button" onClick={gameStart}>
         Start
       </button>
