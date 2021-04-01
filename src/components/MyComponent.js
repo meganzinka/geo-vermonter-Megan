@@ -10,6 +10,3 @@ function MyComponent(props) {
 }
 
 export default MyComponent;
-
-
-//issue is view and marker are moving together

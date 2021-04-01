@@ -6,10 +6,7 @@ import {
   Polyline,
 } from "react-leaflet";
 import borderData from "../data/border";
-import leafletPip from "leaflet-pip";
-// import L, { map } from "leaflet";
 import MyComponent from "./MyComponent";
-import {useState} from "react"
 
 
 function Map(props) {
