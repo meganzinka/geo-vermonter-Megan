@@ -9,6 +9,7 @@ export default function Guess(props) {
 
 //check to see if if user's guess is correct 
   function submitGuess(event) {
+    console.log(props.location.county)
     if (countyGuess === props.location.county) {
       //user won the game - send this info to App so can show lat/long etc 
       props.setWin(true)
@@ -39,6 +40,11 @@ export default function Guess(props) {
     setCountyGuess(event.target.value)
   }
 
+  function closeModal (event) {
+    setDisplayMessage(false)
+    props.setGuess(false)
+  }
+
   //options of counties. default is to make sure that first choice (addison) is actually selected/clicked to translate that information
   if (props.guess === true) {
     return (
@@ -67,7 +73,7 @@ export default function Guess(props) {
               Submit
             </button>
           {/* Make the message go away when user hits cancel  */}
-          <button class = "guess-button" onClick={() => props.setGuess(false)}>Cancel</button>
+          <button class = "guess-button" onClick={closeModal}>Cancel</button>
           </center></span></div>
       </div>
     );

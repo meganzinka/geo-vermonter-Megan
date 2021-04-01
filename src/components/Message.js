@@ -9,11 +9,13 @@ const [hidden, setHidden] = useState(false)
     return (
       <div class="message-wrapper" style ={hidden? {display: 'none'} : {display: 'flex'}}>
         <div class="message">
+          <center>
           <h1> Congratulations, you won!</h1>
           <h3> Your was score was: {props.score}!</h3>
           <button onClick = {function () {
             setHidden(true)
           }}>Exit</button>
+          </center>
         </div>
       </div>
     );
