@@ -24,6 +24,7 @@ function Map(props) {
     <MapContainer
       center={props.center}
       zoom={8}
+      dragging= {false}
       scrollWheelZoom={false}
       doubleClickZoom={false}
       zoomControl={false}
