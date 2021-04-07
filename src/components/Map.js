@@ -29,6 +29,7 @@ function Map(props) {
       doubleClickZoom={false}
       zoomControl={false}
       touchZoom={false}
+      keyboard = {false}  
       style={{ height: "600px", width: "600px" }}
     >
 
