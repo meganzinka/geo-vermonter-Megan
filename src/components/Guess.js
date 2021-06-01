@@ -9,7 +9,6 @@ export default function Guess(props) {
 
 //check to see if if user's guess is correct 
   function submitGuess(event) {
-    console.log(props.location.county)
     if (countyGuess === props.location.county) {
       //user won the game - send this info to App so can show lat/long etc 
       props.setWin(true)

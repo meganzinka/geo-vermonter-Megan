@@ -31,6 +31,7 @@ function Map(props) {
       touchZoom={false}
       keyboard = {false}  
       style={{ height: "600px", width: "600px" }}
+      id="map-container"
     >
 
       <MyComponent center={props.center} zoom={props.zoom} />

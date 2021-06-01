@@ -1,93 +1,203 @@
 /* ----- General Body Design ----- */
-#header {
-  grid-column: 1/4;
-  grid-row: 1; 
-  text-align: center; 
-  font-size: 4em;
-  color: white;
-  background-color: #6b705c;
-  font-weight: bold;
-  padding-top: 20px;
+#App-wrapper {
+  /* position: relative; */
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 14% 43% 43%;
 }
 
 body {
   align-content: center;
-  /* font-family: Avenir; */
+  font-family: "Fredoka One", cursive;
+  margin: 0;
+  background-color: #2a9d8f;
 }
 
 button {
-  grid-column: 3;
+  border-radius: 50%;
+  border: 0;
+  width: auto;
+  background-color: #2a9d8f;
+  color: white;
+  font-size: 3vh;
+  font-family: "Fredoka One", cursive;
+}
+
+/*----------------Header------------------*/
+#header {
+  grid-column: 1/4;
+  grid-row: 1;
+  color: white;
+  background-color: #423582;
+  font-weight: bold;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  height: auto;
+}
+
+#game-logo {
+  height: 12vh;
+  width: auto;
+}
+
+/*----------------Left side---------------*/
+#welcome-message,
+#panel-container {
+  grid-column: 1;
+  grid-row: 2;
+  text-align: justify;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 5vw;
+  background-image: url("../images/topGameConsole.png");
+  background-size: 100% 100%;
+  font-size: 0.9vw;
+  margin: 1vw 1vw 0 1vw;
+}
+
+#start-container,
+#compass-container, #new-game-container {
+  grid-column: 1;
   grid-row: 3;
   text-align: center;
-  height: 2vw;
-  width: 7vw;
-  background-color: #a5a58d;
-  color: white;
-  font-size: 1vw;
-  border: 0;
-  border-radius: 5px;
-  font-weight: bold;
-  text-transform: uppercase;
-  box-shadow: 3px 3px 2px #806d6d;
+  background-image: url("../images/bottomGameConsole.png");
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1vw;
+  margin-left: 1vw;
+  margin-bottom: 1vw;
+}
+
+#start-button, #new-game-button {
+  height: 50%;
+  width: 40%;
+  font-family: "Fredoka One", cursive;
+}
+
+#north,
+#east,
+#south,
+#west {
+  width: 50px;
+  height: 50px;
+  font-size: 2vw;
   margin: 5px;
 }
 
-#App-wrapper {
-  position: relative;
-  justify-content: center;
-  border-radius: 25%;
-  display: grid;
-  grid-template-columns: 1fr 600px 1fr;
-  grid-template-rows: 1fr 2fr 2fr;
-  grid-gap: 10px;
-}
-
-/* ----- Component Container Design ----- */
-
-#panel-container {
-  grid-column: 3;
-  grid-row: 2;
-  margin-right: 15px; 
-  border-radius: 5%;
-  background-color: #6b705c;
-  color:white;
-  font-size: large;
-  padding: 5px;
-  box-shadow: 3px 3px 2px #3f4238;
-  height: 20vw;
-}
+/* ----- Right Side Design ----- */
 
 #score-wrapper {
-  grid-column: 1;
-  grid-row: 2; 
-  background-color: #6b705c;
-  color:white;
-  font-size: x-large;
+  grid-column: 3;
+  grid-row: 2;
+  background-color: #423582;
+  color: white;
+  font-size: 4vw;
+  border-radius: 10px;
+  margin: 1vw;
+  padding: 2vw;
+  max-width: 100%;
+  max-height: 78%;
+  display: flex;
+  justify-content: center;
+  /* text-justify: center; */
+  /* justify-items: center; */
+  align-items: center;
+  /* text-align: center; */
+}
+
+#score {
+  display: flex;
   text-align: center;
-  border-radius: 5px;
-  height: 15vw;
-  padding-top: 2vw;
-  padding-bottom: 1vw;
-  margin: 10px;
-  box-shadow: 3px 3px 2px #3f4238;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9c46a;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+#score-container {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+
 }
 
 #display-buttons-container {
   grid-column: 3;
-  grid-row: 3; 
+  grid-row: 3;
+  background-color: #423582;
+  color: white;
+  font-size: 4vw;
+  border-radius: 10px;
+  margin: 0 1vw;
+  padding: 2vw;
+  max-width: 100%;
+  max-height: 78%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#compass-container {
+#guess {
   grid-column: 1;
-  grid-row: 3; 
+  grid-row:1; 
+  background-image: url("../images/Guess\ buttonAsset\ 3.png");
+  background-size: 100% 100%;
+  width: 6vw;
+  height: 6vw;
+  font-size: 2vw;
+  margin: 5px;
 }
+
+/* #return-container{ 
+  width: 100%;
+  display: flex;  
+  justify-content: flex-end;
+} */
+#return-to-start {
+  grid-column: 2;
+  grid-row: 2; 
+  background-image: url("../images/restartButton.png");
+  background-size: 100% 100%;
+  width: 6vw;
+  height: 6vw;
+}
+
+#give-up {
+  grid-column: 1;
+  grid-row:3; 
+  background-image: url("../images/quitButton.png");
+  background-size: 100% 100%;
+  width: 6vw;
+  height: 6vw;
+  font-size: 2vw;
+  margin: 5px;
+}
+
+/*---------------Center Container - Map ------------*/
 
 #map {
   justify-content: center;
-  align-self: center;
+  margin-top: 1vw; 
   text-align: center;
   grid-row: 2/4;
   grid-column: 2;
+  border-radius: 10px;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+#map-container {
+  border-radius: 10px;
+  border: 20px solid #423582;
 }
 
 /* ----- Guess the County Popup ----- */
@@ -106,21 +216,33 @@ button {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10000;
 }
+select {
+  margin: 1vw;
+  padding: 0.5vw;
+  border: 0; 
+  border-radius: 10px;  
+}
 
 #guess-county {
-  height: 15vh;
-  width: 20vw;
-  border-radius: 4px;
-  color: #283618;
-  background-color: #edf6f9;
-  padding: 10px;
-  display:flex;
+  height: 20vh;
+  width: 30vw;
+  border-radius: 10px;
+ background-color: #ebd292;
+  padding: 1vw;
+  margin: 1vw; 
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
 }
+
 .guess-button {
   display: inline;
+  height: 6vw; 
+  width: 6vw; 
+  margin: 0 1.5vw;
+  font-size: 1.5vw;
+  padding: 0.5vw;  
 }
 
 /* ----- Winning/Losing Message Popup ----- */
@@ -141,15 +263,15 @@ button {
 }
 
 .message {
-  height: 60vh;
+  height: 45vh;
   width: 40vw;
   border-radius: 10px;
-  background-color: #edf6f9;
+  background-color: #ebd292;
+  color: white; 
   padding: 10px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
   text-align: center;
   font-size: x-large;
 }
-

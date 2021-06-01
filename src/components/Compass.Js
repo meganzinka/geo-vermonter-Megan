@@ -8,18 +8,18 @@ const Compass = (props) => {
       <div>
         <center>
         <button id="north" onClick={props.changeDirection}>
-          North
+          N
         </button>
         <br></br>
         <button id="west" onClick={props.changeDirection}>
-          West
+          W
         </button>
         <button id="east" onClick={props.changeDirection}>
-          East
+          E
         </button>
         <br></br>
         <button id="south" onClick={props.changeDirection}>
-          South
+          S
         </button>
       </center></div>
     );
