@@ -53,7 +53,7 @@ button {
   color: white;
   display: flex;
   align-items: center;
-  padding: 5vw;
+  padding: 6vw;
   background-image: url("../images/topGameConsole.png");
   background-size: 100% 100%;
   font-size: 0.9vw;
@@ -263,15 +263,15 @@ select {
 }
 
 .message {
-  height: 45vh;
-  width: 40vw;
+  height: 40vh;
+  width: 38vw;
   border-radius: 10px;
   background-color: #ebd292;
   color: white; 
-  padding: 10px;
+  padding: 5vh;
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
   text-align: center;
-  font-size: x-large;
+  font-size: 3vh;
 }

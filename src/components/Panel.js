@@ -20,11 +20,11 @@ export default function Panel(props) {
     } 
 
   return (
-    <div>
-      <h3>Latitude: <br></br>{lat}</h3>
-      <h3>Longitude: <br></br>{long}</h3>
-      <h3>County: <br></br>{county}</h3>
-      <h3>Town: <br></br>{town}</h3>
+    <div id="panel">
+      <h3>Latitude: {lat}</h3>
+      <h3>Longitude: {long}</h3>
+      <h3>County: {county}</h3>
+      <h3>Town: {town}</h3>
     </div>
   );
 }
