@@ -7,6 +7,11 @@
   grid-template-rows: 14% 43% 43%;
 }
 
+button:hover { 
+  opacity: 0.8; 
+  cursor: pointer;
+
+}
 body {
   align-content: center;
   font-family: "Fredoka One", cursive;
@@ -53,10 +58,10 @@ button {
   color: white;
   display: flex;
   align-items: center;
-  padding: 5vw;
+  padding: 6vw;
   background-image: url("../images/topGameConsole.png");
   background-size: 100% 100%;
-  font-size: 0.9vw;
+  font-size: 0.7vw;
   margin: 1vw 1vw 0 1vw;
 }
 
@@ -73,6 +78,35 @@ button {
   margin-right: 1vw;
   margin-left: 1vw;
   margin-bottom: 1vw;
+}
+
+#welcome-words {
+    /* width: 70%; */
+    animation: typing 12s steps(12), blink 1s infinite 8s;
+    -webkit-animation-delay: 1s; 
+    animation-delay: 1s; 
+    white-space: wrap;
+    overflow: hidden;
+    border-right: .15em solid transparent;
+    /* font-size: 4vw; */
+    /* z-index: 2200;  */
+    /* position: absolute;  */
+    /* top: 5vw;  */
+    /* text-align:center;  */
+    opacity: 0; 
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent
+  }
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+    opacity: 1; 
+  }
 }
 
 #start-button, #new-game-button {

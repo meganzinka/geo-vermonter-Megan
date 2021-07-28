@@ -180,8 +180,8 @@ function App() {
       </div>) : null }
 
       {!start && !userGiveUp? 
-      (<div id = "welcome-message"> Welcome to Geo-Vermonter! 
-      When you hit start, you'll be dropped at a random location within Vermont. Use the North, South, East and West buttons to look around, but beware: you lose one point every time you do so.  When you think you know what county you're in, press guess! Each incorrect guess will subtract 10 points from your score. Good luck! </div>) : null}
+      (<div id = "welcome-message"><div id="welcome-words"> Welcome to Geo-Vermonter! 
+      When you hit start, you'll be dropped at a random location within Vermont. Use the North, South, East and West buttons to look around, but beware: you lose one point every time you do so.  When you think you know what county you're in, press guess! Each incorrect guess will subtract 10 points from your score. Good luck! </div></div>) : null}
 
       {!start && !userGiveUp? 
       (<div id="start-container">
